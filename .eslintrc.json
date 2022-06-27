@@ -1,35 +1,59 @@
 {
   "env": {
     "browser": true,
-    "amd": true,
+    "es2021": true,
     "node": true
   },
   "extends": [
+    "next",
     "next/core-web-vitals",
+    "airbnb",
+    "airbnb-typescript",
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
-    "plugin:jsx-a11y/recommended",
     "prettier"
   ],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "simple-import-sort", "prettier"],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "simple-import-sort",
+    "prettier"
+  ],
   "rules": {
+    "prettier/prettier": "error",
+    "react/jsx-props-no-spreading": "off",
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
+    "react/function-component-definition": "off",
     "jsx-a11y/anchor-is-valid": "off",
-    "prettier/prettier": [
-      "error",
-      {},
-      {
-        "usePrettierrc": true
-      }
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-use-before-define": [
+      "error"
     ],
-    "arrow-body-style": "off",
-    "prefer-arrow-callback": "off",
     "@typescript-eslint/no-unused-vars": "error",
     "@typescript-eslint/no-explicit-any": "error",
     "simple-import-sort/imports": "error",
-    "simple-import-sort/exports": "error"
+    "simple-import-sort/exports": "error",
+    "arrow-body-style": "off",
+    "prefer-arrow-callback": "off",
+    "no-use-before-define": "off"
+  },
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [
+        ".ts",
+        ".tsx"
+      ]
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": "./tsconfig.json"
+      }
+    }
   }
 }
